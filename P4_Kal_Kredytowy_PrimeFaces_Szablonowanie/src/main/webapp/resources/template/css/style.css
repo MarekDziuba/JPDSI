@@ -1,0 +1,25 @@
+body{
+	font-family: 'Century Gothic',helvetica,verdana,arial;
+	/*background: url("../img/w1.jpg.jsf?ln=template") no-repeat center center fixed;
+	background-size: cover;*/
+	background: radial-gradient(666px at 0.4% 48%, rgb(202, 204, 227) 0%, rgb(89, 89, 99) 97.5%);
+	margin:0;
+}
+
+.bottom-space{
+	margin-bottom: 1em;
+}
+
+.top-space{
+	margin-top: 1em;
+}
+
+#page_wrapper{
+	margin: 1em;
+	min-width: 700px;
+}
+
+.panel {
+	margin: 3em auto;
+	width: 90%;
+}
