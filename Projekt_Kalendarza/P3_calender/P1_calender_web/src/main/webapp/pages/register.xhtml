@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:h="jakarta.faces.html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="jakarta.faces.core">
+
+<ui:composition template="/templates/login-template.xhtml">
+
+	<ui:define name="content">
+
+	<div class="card">
+	<div id="register">
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5" styleClass="bottom-space">
+			
+				<p:outputLabel for="Username" value="Username" />
+				<p:inputText id="Username" value="#{registerBB.username}"
+					required="true"	requiredMessage="podaj username"/>
+					
+				<p:outputLabel for="Email" value="Email" />
+				<p:inputText id="Email" value="#{registerBB.email}"
+					required="true"	requiredMessage="podaj email"/>
+					
+				<p:outputLabel for="login" value="Login" />
+				<p:inputText id="login" value="#{registerBB.login}"
+					required="true"	requiredMessage="podaj login"/>	
+					
+				<p:outputLabel for="Pass" value="Hasło" />
+				<p:password id="Pass" value="#{registerBB.pass}"
+				required="true"	requiredMessage="podaj hasło"/>
+				
+				<p:outputLabel for="Passrep" value="Powtórz hasło" />
+				<p:password id="Passrep" value="#{registerBB.passrep}"
+				required="true"	requiredMessage="podaj hasło"/>
+				
+			</h:panelGrid>
+				
+			<h:commandButton value="Zaloz" action="#{registerBB.doRegister()}" update="msg" />
+
+		</h:form>
+		
+		<h:form><h:commandButton value="Powrot" action="#{registerBB.newLogin()}" update="msg" /></h:form>
+		
+		<p:messages />
+		
+	</div>
+	</div>
+	
+	</ui:define>
+
+</ui:composition>
+</html>
