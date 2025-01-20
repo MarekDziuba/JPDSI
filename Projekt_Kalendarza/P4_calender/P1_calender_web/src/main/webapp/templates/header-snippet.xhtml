@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core">
+
+	<h1>
+		<ui:insert name="title">...</ui:insert>
+	</h1>
+
+	<h:outputText
+		value="Zalogowany: #{remoteClient.details.name} #{remoteClient.details.surname}" />
+	<h:form style="display:inline;">
+		<h:commandButton value="Wyloguj" action="#{loginBB.doLogout()}" />
+	</h:form>
+
+
+</ui:composition>

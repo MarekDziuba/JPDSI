@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Projekt kalendarza</title>
+	<h:outputStylesheet name="css/style.css" library="template" />
+	
+</h:head>
+<h:body style="background-color: #eee; margin: 0.5em;">
+
+<h:outputText
+		value="Zalogowany: #{remoteClient.details.username}" id="username"/>
+<h:outputText
+		value="Id: #{remoteClient.details.id_user}" id="id_user"/>
+
+<h:form>
+<div class="card">
+<p:growl id="messages" showDetail="true"/>
+        <p:commandButton id="dynaButton" value="Menu" type="button" icon="pi pi-bars"/>
+        <p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom">
+            <p:submenu label="Options">
+                <p:menuitem value="Calender" action="#{menuView.mainPage}" icon="pi pi-calendar"/>
+                <p:menuitem value="Setting" action="#{menuView.settingPage}" icon="pi pi-sliders-h"/>
+                <p:menuitem value="Logout"  action="#{loginBB.doLogout()}" icon="pi pi-power-off"/>
+            </p:submenu>
+        </p:menu>
+    </div>
+</h:form>
+
+	
+
+	<h:form>
+		<p:messages id="messages" autoUpdate="true"/>
+	
+		<h:panelGrid columns="3" cellpadding="10" styleClass="form-grid">
+            <!-- Username -->
+            <h:outputLabel for="username" value="Username:" />
+            <p:inputText id="username" value="#{settingBB.username}" required="true" />
+
+            <!-- Login -->
+            <h:outputLabel for="login" value="Login:" />
+            <p:inputText id="login" value="#{settingBB.login}" required="true" />
+
+            <!-- Email -->
+            <h:outputLabel for="email" value="Email:" />
+            <p:inputText id="email" value="#{settingBB.email}" required="true" validatorMessage="Invalid email format">
+                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+            </p:inputText>
+
+            <!-- Password -->
+            <h:outputLabel for="password" value="Password:" />
+            <p:password id="password" value="#{settingBB.password}" feedback="true" />
+
+            <!-- Confirm Password -->
+            <h:outputLabel for="confirmPassword" value="Confirm Password:" />
+            <p:password id="confirmPassword" value="#{settingBB.confirmPassword}" feedback="true" />
+
+            <!-- Submit Button -->
+            <p:commandButton value="Save Changes" action="#{settingBB.saveChanges}" update="messages" />
+        </h:panelGrid>
+    </h:form>
+	
+</h:body>
+</html>
