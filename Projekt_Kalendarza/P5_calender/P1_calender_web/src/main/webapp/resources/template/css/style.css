@@ -1,0 +1,71 @@
+body{
+	background-color: #eeeeee;
+	font-family: 'Century Gothic',helvetica,verdana,arial;
+	margin:0;
+}
+
+.bottom-space{
+	margin-bottom: 2em;
+}
+
+.top-space{
+	margin-top: 1em;
+}
+
+.box{
+	padding: 1em;
+	border-radius: 3px;
+
+}
+
+#page_wrapper{
+	margin: 1em;
+	min-width: 700px;
+}
+
+#footer{
+	text-align: center;
+}
+
+#username {
+	float: right;
+}
+
+#card {
+	float: left;
+	padding: 15px;
+  	height: 350px;
+}
+
+#login {
+	background-color: white;
+	max-width: fit-content;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 10%;
+  	
+  	border: 2px solid #2196f3;
+  	border-radius: 5px;
+  	
+  	padding: 15px;
+  	height: 350px;
+}
+
+#register {
+	background-color: white;
+	max-width: fit-content;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 5%;
+  	
+  	border: 2px solid #2196f3;
+  	border-radius: 5px;
+  	
+  	padding: 15px;
+  	height: 550px;
+}
+
+.deleteBtn {
+	float: right; 
+	margin-left: 10px;
+}

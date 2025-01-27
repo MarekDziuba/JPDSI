@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+
+<h:outputText
+value="Zalogowany: #{remoteClient.details.username}" id="username"/>
+	
+<h:form>
+<div class="card">
+<p:growl id="messages" showDetail="true"/>
+        <p:commandButton id="dynaButton" value="Menu" type="button" icon="pi pi-bars"/>
+        <p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom">
+            <p:submenu label="Options">
+            	<p:menuitem value="Employee" action="#{menuView.employeePage}" rendered="#{remoteClient.isInRole('employee')}" icon="pi pi-info-circle"/>
+                <p:menuitem value="Calender" action="#{menuView.mainPage}" icon="pi pi-calendar"/>
+                <p:menuitem value="Setting" action="#{menuView.settingPage}" icon="pi pi-sliders-h"/>
+                <p:menuitem value="Logout"  action="#{loginBB.doLogout()}" icon="pi pi-power-off"/>
+            </p:submenu>
+        </p:menu>
+    </div>
+</h:form>
+
+</html>

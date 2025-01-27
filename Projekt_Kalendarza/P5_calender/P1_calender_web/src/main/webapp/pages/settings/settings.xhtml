@@ -1,0 +1,45 @@
+<ui:composition template="/templates/main-template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                
+                
+	<ui:define name="title">Settings</ui:define>     
+
+<ui:define name="content">
+
+	<h:form>
+		<p:messages id="messages" autoUpdate="true"/>
+	
+		<h:panelGrid columns="3" cellpadding="10" styleClass="form-grid">
+            <!-- Username -->
+            <h:outputLabel for="username" value="Username:" />
+            <p:inputText id="username" value="#{settingBB.username}" required="true" />
+
+            <!-- Login -->
+            <h:outputLabel for="login" value="Login:" />
+            <p:inputText id="login" value="#{settingBB.login}" required="true" />
+
+            <!-- Email -->
+            <h:outputLabel for="email" value="Email:" />
+            <p:inputText id="email" value="#{settingBB.email}" required="true" validatorMessage="Invalid email format">
+                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+            </p:inputText>
+
+            <!-- Password -->
+            <h:outputLabel for="password" value="Password:" />
+            <p:password id="password" value="#{settingBB.password}" feedback="true" />
+
+            <!-- Confirm Password -->
+            <h:outputLabel for="confirmPassword" value="Confirm Password:" />
+            <p:password id="confirmPassword" value="#{settingBB.confirmPassword}" feedback="true" />
+
+            <!-- Submit Button -->
+            <p:commandButton value="Save Changes" action="#{settingBB.saveChanges}" update="messages" />
+        </h:panelGrid>
+    </h:form>
+	
+ </ui:define>
+</ui:composition>
